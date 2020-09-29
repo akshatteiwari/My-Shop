@@ -7,9 +7,9 @@ using System.Runtime.Caching;
 using MyShop.Core;
 using MyShop.Core.Models;
 
-namespace MyShop.DataAccess.Memory
+namespace MyShop.DataAccess.InMemory
 {
-    class ProductRepository
+    public class ProductRepository
     {
         ObjectCache cache = MemoryCache.Default;
         List<Product> products = new List<Product>();
@@ -63,10 +63,10 @@ namespace MyShop.DataAccess.Memory
         }
         public void Delete(String Id)
         {
-            Product producttoDelete = products.Find(p => p.Id == Id);
-            if (producttoDelete != null)
+            Product productToDelete = products.Find(p => p.Id == Id);
+            if (productToDelete != null)
             {
-                products.Remove(producttoDelete);
+                products.Remove(productToDelete);
             }
             else
             {
